@@ -60,18 +60,117 @@
 // };
 
 // export default Signin;
+
+// import React, { useEffect, useState } from "react";
+
+// const Signin = ({ onClose, onSwitchToSignup }) => {
+//   const [show, setShow] = useState(false);
+
+//   useEffect(() => {
+//     setTimeout(() => setShow(true), 100); // trigger animation after mount
+//   }, []);
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     // Handle login logic here
+//     console.log("Login submitted");
+//   };
+
+//   return (
+//     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
+//       <div
+//         className={`bg-white rounded-xl shadow-xl transform transition-all duration-300 ease-out p-6 w-full max-w-sm ${
+//           show ? "scale-100 opacity-100" : "scale-75 opacity-0"
+//         }`}
+//       >
+//         {/* Close Button */}
+//         <button
+//           onClick={onClose}
+//           className="absolute top-4 right-5 text-xl font-bold text-gray-600 hover:text-red-500"
+//         >
+//           &times;
+//         </button>
+
+//         {/* Title */}
+//         <h2 className="text-2xl font-bold text-center text-orange-500 mb-6">Welcome Back!</h2>
+
+//         {/* Form */}
+//         <form onSubmit={handleSubmit} className="space-y-4">
+//           {/* Email */}
+//           <div>
+//             <label htmlFor="email" className="text-sm font-medium text-gray-700 mb-1 block">
+//               Email
+//             </label>
+//             <input
+//               type="email"
+//               id="email"
+//               required
+//               placeholder="you@example.com"
+//               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-400 focus:outline-none"
+//             />
+//           </div>
+
+//           {/* Password */}
+//           <div>
+//             <label htmlFor="password" className="text-sm font-medium text-gray-700 mb-1 block">
+//               Password
+//             </label>
+//             <input
+//               type="password"
+//               id="password"
+//               required
+//               placeholder="••••••••"
+//               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-400 focus:outline-none"
+//             />
+//           </div>
+
+//           {/* Login Button */}
+//           <button
+//             type="submit"
+//             className="w-full bg-orange-500 text-white py-2 rounded-lg font-semibold hover:bg-orange-600 transition"
+//           >
+//             Login
+//           </button>
+//         </form>
+
+//         {/* Links Below */}
+//         <div className="mt-4 text-center text-sm text-gray-600">
+//           <a
+//             href="#"
+//             className="text-orange-500 hover:underline"
+//             onClick={(e) => {
+//               e.preventDefault();
+//               alert("Forgot password clicked!");
+//             }}
+//           >
+//             Forgot Password?
+//           </a>
+//           <span className="mx-2">|</span>
+//           <button
+//             onClick={onSwitchToSignup}
+//             className="text-orange-500 hover:underline focus:outline-none"
+//           >
+//             Don’t have an account?
+//           </button>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Signin;
+
 import React, { useEffect, useState } from "react";
 
-const Signin = ({ onClose, onSwitchToSignup }) => {
+const Signin = ({ onClose, onSwitchToSignup, onForgotPassword }) => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setShow(true), 100); // trigger animation after mount
+    setTimeout(() => setShow(true), 100);
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle login logic here
     console.log("Login submitted");
   };
 
@@ -82,7 +181,6 @@ const Signin = ({ onClose, onSwitchToSignup }) => {
           show ? "scale-100 opacity-100" : "scale-75 opacity-0"
         }`}
       >
-        {/* Close Button */}
         <button
           onClick={onClose}
           className="absolute top-4 right-5 text-xl font-bold text-gray-600 hover:text-red-500"
@@ -90,12 +188,11 @@ const Signin = ({ onClose, onSwitchToSignup }) => {
           &times;
         </button>
 
-        {/* Title */}
-        <h2 className="text-2xl font-bold text-center text-orange-500 mb-6">Welcome Back!</h2>
+        <h2 className="text-2xl font-bold text-center text-orange-500 mb-6">
+          Welcome Back!
+        </h2>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Email */}
           <div>
             <label htmlFor="email" className="text-sm font-medium text-gray-700 mb-1 block">
               Email
@@ -109,7 +206,6 @@ const Signin = ({ onClose, onSwitchToSignup }) => {
             />
           </div>
 
-          {/* Password */}
           <div>
             <label htmlFor="password" className="text-sm font-medium text-gray-700 mb-1 block">
               Password
@@ -123,7 +219,6 @@ const Signin = ({ onClose, onSwitchToSignup }) => {
             />
           </div>
 
-          {/* Login Button */}
           <button
             type="submit"
             className="w-full bg-orange-500 text-white py-2 rounded-lg font-semibold hover:bg-orange-600 transition"
@@ -132,14 +227,13 @@ const Signin = ({ onClose, onSwitchToSignup }) => {
           </button>
         </form>
 
-        {/* Links Below */}
         <div className="mt-4 text-center text-sm text-gray-600">
           <a
             href="#"
             className="text-orange-500 hover:underline"
             onClick={(e) => {
               e.preventDefault();
-              alert("Forgot password clicked!");
+              onForgotPassword();
             }}
           >
             Forgot Password?
