@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route
           path="/pg"
           element={
@@ -18,8 +18,6 @@ function App() {
               <Navbar />
               <PGListing />
               <Footer />  
-              <Signin/>
-              <Signup />
             </>
           }
         />
@@ -27,5 +25,8 @@ function App() {
     </Router>
   );
 }
+
+
+
 
 export default App;

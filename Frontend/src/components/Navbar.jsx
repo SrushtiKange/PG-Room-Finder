@@ -28,6 +28,9 @@ import React, { useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import Signin from "./Signin";
 import Signup from "./Signup";
+import { Link, useLocation } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
+
 
 const Navbar = () => {
   const [showSignin, setShowSignin] = useState(false);
